@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ShoppingCart;
 use Exception;
@@ -35,6 +36,8 @@ class ShoppingCartController extends Controller
                 'product_id' => $product->id,
                 'quantity' => $request->quantity,
                 'subtotal' => $request->quantity * $product->price,
+                'created_at' => now(),
+                'updated_at' => now(),
             ]);
 
             DB::commit();
