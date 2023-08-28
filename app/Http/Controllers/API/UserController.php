@@ -94,7 +94,7 @@ class UserController extends Controller
             
             // jika belum ada
             if ($checkUser < 1) {
-                return response()->json(['status' => 'Bad Request', 'message' => 'Email address is not found!'], 400); // return pesan error
+                return response()->json(['status' => 'Bad Request', 'message' => 'Email address is not found!'], 404); // return pesan error
             }
             
             $user = User::where('email', $request->email)->first(); // ambil data user
